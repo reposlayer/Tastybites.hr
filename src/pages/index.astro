@@ -23,5 +23,22 @@ import Footer from '../components/Footer.astro';
       <Menu />
     </main>
     <Footer />
+    <style is:global>
+      /* Final Polish: Smooth scrolling za anchor linkove (npr. klik na 'Jelovnik' u navigaciji) */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 5rem; /* da navigacija ne prekrije naslov */
+      }
+      
+      /* Lagani fade-in efekt učitavanja */
+      body {
+        animation: fadeIn 0.8s ease-out forwards;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
   </body>
 </html>
