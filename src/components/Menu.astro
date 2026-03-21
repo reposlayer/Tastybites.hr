@@ -1,24 +1,26 @@
 ---
 const burgers = [
-    { name: "Tasty smash", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, pečeni luk, Tasty umak", price: "11.50 €" },
-    { name: "Truffle smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, rikula, krema od tartufa", price: "11.50 €" },
-    { name: "Classic smash", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, zelena salata, rajčica, kiseli krastavci, Tasty umak", price: "11.50 €" },
-    { name: "Ljuti smash", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, zelena salata, jalapeno papričice, ljuti Tasty umak, chili pahuljice", price: "11.50 €" }
+    { name: "Classic smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, zelena salata, rajčica, kiseli krastavci, tasty umak", price: "9.00 €" },
+    { name: "Tasty smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, pečeni luk, tasty umak", price: "8.50 €" },
+    { name: "Ljuti smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, zelena salata, jalapenos, tasty umak", price: "9.00 €" },
+    { name: "Truffle smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, rikula, krema od tartufa, pečeni luk", price: "9.50 €" },
+    { name: "Retro smash", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, ketchup, senf, luk", price: "8.50 €" }
 ];
 
-const burgerMenus = [
-    { name: "Classic Smash menu", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, zelena salata, rajčica, kiseli krastavci, Tasty umak, pommes frites, coca-cola 0.33", price: "14.20 €" },
-    { name: "Ljuti Smash menu", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, zelena salata, jalapeno papričice, ljuti Tasty umak, pommes frites, coca-cola 0.33", price: "14.20 €" },
-    { name: "Tasty Smash menu", desc: "2x 100% juneći odrezak, američki sir, brioche pecivo, pečeni luk, Tasty umak, pommes frites, coca-cola 0.33", price: "14.20 €" },
-    { name: "Truffle Smash menu", desc: "2x 100% juneći odrezak, americki sir, brioche pecivo, rikula, krema od tartufa, coca-cola 0.33", price: "14.20 €" }
+const comboMeals = [
+    { name: "Combo Meal", desc: "Burger, Normal Fries, Sok", price: "13.00 €" }
 ];
 
-const sides = [
-    { name: "Garlic Fries", desc: "Veliki pommes sa majonezom od češnjaka.", price: "6.00 €" }
+const loadedFries = [
+    { name: "Dirty fries", desc: "100% juneći odrezak, fries, americki sir, jalapenos, tasty umak", price: "7.50 €" },
+    { name: "Garlic fries", desc: "Hrskavi pomfrit poslužen s aromatičnim umakom od češnjaka", price: "4.50 €" },
+    { name: "Bacon fries", desc: "Pomfrit s tasty umakom I hrskavim komadićima slanine.", price: "6.00 €" },
+    { name: "Truffle fries", desc: "Zlatno prženi, hrskavi pomfrit s umakom od tartufa i ribanim parmezan sirom", price: "5.00 €" },
+    { name: "Normal fries", desc: "Zlatno prženi, hrskavi pomfrit, klasičnog okusa", price: "3.00 €" }
 ];
 
-const drinks = [
-    { name: "Coca-Cola", price: "2.50 €" }
+const sauces = [
+    { name: "Garlic Mayo, Tasty, Chippotle Mayo", price: "0.50 €" }
 ];
 ---
 <section id="menu" class="py-24 bg-darker text-white">
@@ -49,9 +51,9 @@ const drinks = [
             <div class="space-y-16">
                 <!-- Burger Menus -->
                 <div>
-                    <h3 class="text-3xl font-display font-bold border-b border-white/10 pb-4 mb-8 text-primary">Burger Menu <span class="text-sm font-sans font-normal text-gray-400 normal-case ml-2">(Fries, Coca-Cola 0.33, Ketchup)</span></h3>
+                    <h3 class="text-3xl font-display font-bold border-b border-white/10 pb-4 mb-8 text-primary">Combo Meal</h3>
                     <div class="space-y-8">
-                        {burgerMenus.map(item => (
+                        {comboMeals.map(item => (
                             <div class="group">
                                 <div class="flex justify-between items-baseline mb-2 gap-4">
                                     <h4 class="text-xl font-bold font-sans uppercase tracking-wide group-hover:text-primary transition-colors">{item.name}</h4>
@@ -66,11 +68,11 @@ const drinks = [
                 <!-- Prilozi i Pića Combo -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
                     <div>
-                        <h3 class="text-2xl font-display font-bold border-b border-white/10 pb-3 mb-6 text-primary">Prilozi</h3>
+                        <h3 class="text-2xl font-display font-bold border-b border-white/10 pb-3 mb-6 text-primary">Fries & Sides</h3>
                         <div class="space-y-6">
-                            {sides.map(item => (
+                            {loadedFries.map(item => (
                                 <div class="group">
-                                    <div class="flex justify-between items-baseline mb-2 gap-4">
+                                    <div class="flex justify-between items-baseline mb-1 gap-2">
                                         <h4 class="text-lg font-bold font-sans uppercase tracking-wide group-hover:text-primary transition-colors">{item.name}</h4>
                                         <span class="text-lg font-bold font-display text-primary whitespace-nowrap">{item.price}</span>
                                     </div>
@@ -80,12 +82,15 @@ const drinks = [
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-display font-bold border-b border-white/10 pb-3 mb-6 text-primary">Pića</h3>
+                        <h3 class="text-2xl font-display font-bold border-b border-white/10 pb-3 mb-6 text-primary">Umak</h3>
                         <div class="space-y-4">
-                            {drinks.map(item => (
-                                <div class="flex justify-between items-baseline border-b border-white/5 pb-2">
-                                    <h4 class="text-sm font-sans uppercase text-gray-300">{item.name}</h4>
-                                    <span class="text-sm font-bold font-display text-primary">{item.price}</span>
+                            {sauces.map(item => (
+                                <div class="flex flex-col border-b border-white/5 pb-2">
+                                    <div class="flex justify-between items-baseline mb-1">
+                                        <h4 class="text-sm font-sans uppercase text-gray-300">Svi umaci</h4>
+                                        <span class="text-sm font-bold font-display text-primary">{item.price}</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">{item.name}</p>
                                 </div>
                             ))}
                         </div>
